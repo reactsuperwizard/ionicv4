@@ -1,9 +1,74 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Three
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content></ion-content>
+    <ion-toolbar mode="ios">
+      <ion-title >
+       Mis datos
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      &nbsp;
+      <div *ngIf="!loginEnabled">
+          <ion-card>
+              <ion-card-content no-padding>
+                  <ion-item lines="none">
+                      <ion-label position="fixed">Teléfono: 
+                       </ion-label>
+                       <ion-input [(ngModel)]="mobileNumber"></ion-input>
+                  </ion-item>
+                  &nbsp;
+                  <ion-button expand="block" size="large" color="light" (click)="setMyNum()">
+                      Guardar mi número
+                  </ion-button>
+                  &nbsp;    
+                  <div *ngIf="mobileNumberSetCorrectly">
+                      <ion-item lines="none">
+                          <ion-label position="fixed">Código SMS:
+                           </ion-label>
+                           <ion-input [(ngModel)]="smsCode"></ion-input>
+                      </ion-item>
+                      &nbsp;
+                      <ion-button expand="block" size="large" color="light" (click)="checkSmsCode()">
+                          Verificar
+                      </ion-button>
+                      &nbsp; 
+                  </div>
+              </ion-card-content>
+            </ion-card>
+            <hr style=" border: 0; height: 1px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));">
+            <p style="text-align:center; color:#FFFFFF">v.0.1.16</p>
+        
+      </div>
+  
+      <div *ngIf="loginEnabled">
+          <ion-card>
+              <ion-card-content no-padding>
+                  <ion-item lines="none">
+                      <ion-label position="fixed">Teléfono: 
+                       </ion-label>
+                       <ion-input [(ngModel)]="phoneNumber"></ion-input>
+                  </ion-item>
+                  <ion-item lines="none">
+                      <ion-label position="fixed">Nombre: 
+                       </ion-label>
+                       <ion-input [(ngModel)]="name"></ion-input>
+                  </ion-item>
+                  &nbsp;
+                  <ion-img text-center src="/assets/images/botonSC.png" class="buttonimg"></ion-img>
+                  <hr style=" border: 0; height: 1px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));">
+                  <ion-button expand="block" size="large" color="light">
+                      Guardar mis datos
+                  </ion-button>
+                  &nbsp;    
+              </ion-card-content>
+            </ion-card>
+            <p style="text-align:center; color:#FFFFFF">v.0.1.16</p>
+        
+      </div>
+  
+        
+       
+        
+     
+  </ion-content>
+  

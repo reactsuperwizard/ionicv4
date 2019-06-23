@@ -35,6 +35,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'configure-hotel',
+        children: [
+          {
+            path: '',
+            loadChildren: '../configure-hotel/configure-hotel.module#ConfigureHotelPageModule'
+          }
+        ]
+      },
+      {
+        path: 'grp-new',
+        children: [
+          {
+            path: '',
+            loadChildren: '../grp-new/grp-new.module#GrpNewPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

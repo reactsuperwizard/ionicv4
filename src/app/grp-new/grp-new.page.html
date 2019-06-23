@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar mode="ios">
+        <ion-buttons slot="start">
+          <ion-button routerLink="/tabs/tab2">
+            <ion-icon color="dark" slot="icon-only" name="arrow-round-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      <ion-back-button></ion-back-button>
+      <ion-title>Nueva empresa</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+  <ion-item class="transparentbackground">
+      <ion-label color="light"  text-center text-wrap>
+          <h1>Alta de nueva empresa</h1> 
+       </ion-label>
+  </ion-item>
+   <ion-item lines="full">
+              <ion-label text-wrap >Nombre de la empresa 
+               </ion-label>
+               <ion-input></ion-input>
+          </ion-item>
+          <ion-item  class="transparentbackground">
+              <ion-label color="light" text-wrap>
+                  <h4>Forma de confirmar fichado:</h4> 
+               </ion-label>
+          </ion-item>
+          
+          <ion-item lines="full">
+              <ion-label >Desplazado 
+               </ion-label>
+               <ion-checkbox slot="end"></ion-checkbox>
+          </ion-item>
+          <ion-item lines="full">
+              <ion-label >Encargado
+               </ion-label>
+               <ion-checkbox slot="end"></ion-checkbox>
+          </ion-item>
+          <ion-item lines="full">
+              <ion-label >GeoValla 
+               </ion-label>
+               <ion-checkbox slot="end"></ion-checkbox>
+          </ion-item>
+          <ion-button color="light" expand="block">Guardar</ion-button>
+
+</ion-content>
