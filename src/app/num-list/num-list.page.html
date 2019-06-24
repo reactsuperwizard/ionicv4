@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar mode="ios">
+      <ion-title>
+          <ion-buttons slot="start">
+              <ion-back-button color="dark">Back</ion-back-button>
+            </ion-buttons>
+            Plantilla
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+   <ion-label text-center>
+     <h3>{{config.loadData.myGrpName}}</h3>
+  </ion-label>
+           <ion-item *ngFor="let geoitem of geolists" lines="full" (click)="gotoDetail(geoitem.id_numero)">
+               <ion-label >{{geoitem.phoNombre}}
+                </ion-label>
+           </ion-item>
+          
+   
+  </ion-content>
+  <ion-footer no-padding class="footer" mode="ios">
+    <ion-grid color="primary">
+      <ion-row>
+        <ion-col size="4"><ion-button expand="full" size="default" color="light" routerLink="/tabs/configure-hotel">
+          <ion-label color="primary" text-wrap ><span class="mediumfont">Configurar Hotel</span></ion-label>
+          </ion-button></ion-col>
+        <ion-col size="4"></ion-col>
+        <ion-col size="4"><ion-button size="default" color="light" routerLink="/tabs/grp-new">
+            <ion-label color="primary" text-wrap><span class="mediumfont">Nueva empresa</span></ion-label>
+          </ion-button></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+  

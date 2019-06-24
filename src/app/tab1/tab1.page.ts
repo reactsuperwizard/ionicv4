@@ -9,8 +9,8 @@ import { ConfigService } from '../services/config.service';
 export class Tab1Page {
   loginEnabled: boolean = false;
   mobileNumberSetCorrectly: boolean = false;
-  mobileNumber: string;
-  smsCode:string;
+  mobileNumber: string="605452659";
+  smsCode:string="neUhz5";
 
   name:string='';
   phoneNumber:string

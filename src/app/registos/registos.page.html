@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+          <div *ngFor="let geoitem of geolists">
+              &nbsp;
+              <ion-item  lines="full">
+                  <ion-icon *ngIf="geoitem.tipo == 'S'" name="log-out"></ion-icon>
+                  <ion-icon *ngIf="geoitem.tipo == 'E'" name="log-in"></ion-icon>
+                  <ion-icon *ngIf="geoitem.tipo == 'DE'" name="refresh"></ion-icon>
+                  <ion-icon *ngIf="geoitem.tipo == 'DS'" name="cafe"></ion-icon>
+                  <ion-icon *ngIf="geoitem.tipo == 'EE'" name="timer"></ion-icon>
+                    <ion-label > <h2>{{geoitem.currentdate }}</h2>
+                     </ion-label><br>
+                     <ion-label ><h3>{{geoitem.currenttime}}</h3></ion-label>
+                     <ion-badge *ngIf="geoitem.tipo == 'S'" color="primary">
+                       <ion-label color="light">
+                           {{geoitem.tiempo}}
+                       </ion-label>
+                       </ion-badge>
+                     <ion-badge  *ngIf="geoitem.tipo == 'DS' || geoitem.tipo == 'DE'" color="primary">
+                         <ion-label color="light">
+                             {{geoitem.tiempo}}
+                         </ion-label>
+                       </ion-badge>
+                </ion-item>
+          </div>
+           
+  </ion-content>
+
+  

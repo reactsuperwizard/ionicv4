@@ -53,6 +53,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'num-list',
+        children: [
+          {
+            path: '',
+            loadChildren: '../num-list/num-list.module#NumListPageModule'
+          }
+        ]
+      },
+      {
+        path: 'registos',
+        children: [
+          {
+            path: '',
+            loadChildren: '../registos/registos.module#RegistosPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

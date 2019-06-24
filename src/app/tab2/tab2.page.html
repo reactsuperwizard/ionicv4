@@ -8,31 +8,29 @@
 
 <ion-content padding>
  <ion-label text-center>
-   <h1>Administrar estos grupos:</h1>
+   <h3>Administrar estos grupos:</h3>
  </ion-label>
-      <ion-item lines="full">
-          <ion-label >GES-EMPRESAS
-           </ion-label>
-           <ion-checkbox slot="end"></ion-checkbox>
+      <ion-item *ngFor="let alist of grpAList" lines="full" (click)="gotoGrpCont(alist.myGrpId, alist.myGrpName, alist.myGrpAdminId)">
+          <ion-label >{{alist.myGrpName}}
+           </ion-label>    
       </ion-item>
-      <ion-item lines="full">
+      <!-- <ion-item lines="full">
           <ion-label >HOTEL 
            </ion-label>
            <ion-checkbox slot="end"></ion-checkbox>
-      </ion-item>
+      </ion-item> -->
       <ion-label text-center>
-      <h1>Empresas</h1>
+      <h3>Empresas</h3>
     </ion-label>
-         <ion-item lines="full">
-             <ion-label >GES-EMPRESAS
-              </ion-label>
-              <ion-checkbox slot="end"></ion-checkbox>
+         <ion-item *ngFor="let uList of grpUList" lines="full" (click)="gotoGrpCont(uList.myGrpId, uList.myGrpName, uList.myGrpAdminId)">
+             <ion-label >{{uList.myGrpName}}
+              </ion-label>     
          </ion-item>
-         <ion-item lines="full">
+         <!-- <ion-item lines="full">
              <ion-label >La definitiva 
               </ion-label>
               <ion-checkbox slot="end"></ion-checkbox>
-         </ion-item>
+         </ion-item> -->
  
 </ion-content>
 <ion-footer no-padding class="footer" mode="ios">

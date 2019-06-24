@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    &nbsp;
+    <h2 id="1-heading0" style="color:#FFFFFF;text-align:center;">SignClock</h2>
+    <h1 id="1-heading1" style="color:#FFFFFF;text-align:center;">{{fechaAhora}}</h1>
+
+
+    <button id="misDatos-savephone" class="button button-block" ng-click="goToLists()" ng-hide="(myInfo.ngrupos <= 1) || (myInfo.myTip == 'A')">Cambio de grupo</button>
+    
+    <h2 id="1-heading39" style="color:#FFFFFF;text-align:center;" >{{clock}}</h2>
+    
+    <div id="start-boton-fichar" class="padding" ng-show="myInfo.myTip == 'U'" >
+      <img src="img/botonSC.png" class="line-img-center"  style="width:14em; height:14em" alt="" ng-click="lanzarF();" ng-show="myInfo.myGrpId">
+    </div>
+    
+    <div id="start-boton-fichar" class="padding" ng-show="myInfo.myTip == 'A'" >
+      <img src="img/botonSC.png" class="line-img-center"  style="width:14em; height:14em" alt="" ng-click="goToLists();">
+      <!--<h2 id="1-heading39" style="color:#FFFFFF;text-align:center;">Administrador</h2>-->
+    </div>
+    
+    <h1 id="1-heading2" style="text-align:center; color:#FFF">{{myInfo.myGrpName}}</h1>
+    <h4 id="1-heading3" style="color:#FFFFFF;text-align:center;" ng-show="myInfo.myGrpId && myInfo.myTip == 'U'">{{estado_F}}</h4>
+    
+    <div id="start-grp-list" ng-hide="myInfo.myGrpId">
+      
+      <ion-list id="start-list">
+        <ion-item><h2 id="heading-grupos_admin" style="text-align:center;">Grupo</h2></ion-item>
+        <ion-item ng-repeat="g in grupos_admin" style="text-align:center;">
+          {{g.nombre}}
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <button ion-button color="light"  class="button button-block round" ng-click="showInci()" ng-show="incidencias">Incidencias 
+      <span class="badge badge-assertive">{{incidencias}}</span>
+    </button>
+
+</ion-content>

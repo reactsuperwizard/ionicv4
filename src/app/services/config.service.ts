@@ -26,7 +26,8 @@ export class ConfigService {
     'myCode': '',
     'myGrpLat': '',
     'myGrpLon': '',
-    'ultimo_F': ''
+    'ultimo_F': '',
+    'geo_phone':''
   };
 
   jornada = {
@@ -201,7 +202,9 @@ export class ConfigService {
 
     await alert.present();
   }
-
+  updateLoadData(){
+    this.storage.setItem('myInfo', this.loadData);
+  }
 
 }
 
