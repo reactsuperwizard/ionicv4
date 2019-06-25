@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar mode="ios">
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,26 +7,25 @@
 <ion-content>
     &nbsp;
     <h2 id="1-heading0" style="color:#FFFFFF;text-align:center;">SignClock</h2>
-    <h1 id="1-heading1" style="color:#FFFFFF;text-align:center;">{{fechaAhora}}</h1>
+    <h1 id="1-heading1" style="color:#FFFFFF;text-align:center;">{{clockday}}</h1>
 
 
-    <button id="misDatos-savephone" class="button button-block" ng-click="goToLists()" ng-hide="(myInfo.ngrupos <= 1) || (myInfo.myTip == 'A')">Cambio de grupo</button>
+    <button id="misDatos-savephone" class="button button-block"  *ngIf=" (config.loadData.myTip == 'A')">Cambio de grupo</button>
     
     <h2 id="1-heading39" style="color:#FFFFFF;text-align:center;" >{{clock}}</h2>
     
-    <div id="start-boton-fichar" class="padding" ng-show="myInfo.myTip == 'U'" >
-      <img src="img/botonSC.png" class="line-img-center"  style="width:14em; height:14em" alt="" ng-click="lanzarF();" ng-show="myInfo.myGrpId">
+   <!--   <div id="start-boton-fichar" class="padding" *ngIf="config.loadData.myTip == 'U'" >
+      <img src="/assets/images/botonSC.png" class="line-img-center"  style="width:14em; height:14em" alt=""  *ngIf="config.loadData.myGrpId">
     </div>
     
-    <div id="start-boton-fichar" class="padding" ng-show="myInfo.myTip == 'A'" >
-      <img src="img/botonSC.png" class="line-img-center"  style="width:14em; height:14em" alt="" ng-click="goToLists();">
-      <!--<h2 id="1-heading39" style="color:#FFFFFF;text-align:center;">Administrador</h2>-->
+    <div id="start-boton-fichar" class="padding" *ngIf="config.loadData.myTip == 'A'" >
+      <img src="/assets/imgages/botonSC.png" class="line-img-center"  style="width:14em; height:14em" alt="" >
     </div>
     
-    <h1 id="1-heading2" style="text-align:center; color:#FFF">{{myInfo.myGrpName}}</h1>
-    <h4 id="1-heading3" style="color:#FFFFFF;text-align:center;" ng-show="myInfo.myGrpId && myInfo.myTip == 'U'">{{estado_F}}</h4>
+    <h1 id="1-heading2" style="text-align:center; color:#FFF">{{config.loadData.myGrpName}}</h1>
+    <h4 id="1-heading3" style="color:#FFFFFF;text-align:center;" *ngIf="config.loadData.myGrpId && config.loadData.myTip == 'U'">estado_F</h4>
     
-    <div id="start-grp-list" ng-hide="myInfo.myGrpId">
+   <div id="start-grp-list" ng-hide="myInfo.myGrpId">
       
       <ion-list id="start-list">
         <ion-item><h2 id="heading-grupos_admin" style="text-align:center;">Grupo</h2></ion-item>
@@ -34,10 +33,10 @@
           {{g.nombre}}
         </ion-item>
       </ion-list>
-    </div>
+    </div> -->
 
-    <button ion-button color="light"  class="button button-block round" ng-click="showInci()" ng-show="incidencias">Incidencias 
-      <span class="badge badge-assertive">{{incidencias}}</span>
+    <button ion-button color="light"  class="button button-block round"  >Incidencias 
+      <span class="badge badge-assertive"> incidencias</span>
     </button>
 
 </ion-content>

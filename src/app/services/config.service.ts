@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { appconfig } from '../app.config';
+import {DateFormatPipe} from '../date-format.pipe';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,9 @@ export class ConfigService {
     'myGrpLat': '',
     'myGrpLon': '',
     'ultimo_F': '',
-    'geo_phone':''
+    'geo_phone':'',
+    'latF':'',
+    'lonF':''
   };
 
   jornada = {
@@ -55,7 +58,8 @@ export class ConfigService {
 
 
   constructor(private storage: NativeStorage,
-    private alertController: AlertController, private http: HttpClient) {
+    private alertController: AlertController, 
+    private http: HttpClient,private _dateFormater:DateFormatPipe) {
 
   }
 
@@ -205,6 +209,19 @@ export class ConfigService {
   updateLoadData(){
     this.storage.setItem('myInfo', this.loadData);
   }
+
+  doPostGeo(){
+      let currentDate=this._dateFormater.transform(new Date(),"yyyy-MM-dd");
+      let  mostrarDate=this._dateFormater.transform(new Date(),"dd-MM-yyyy");
+      let currenttime=this._dateFormater.transform(new Date(),"HH-mm-ss");
+
+      
+  }
+
+testDate(){
+  console.log(this._dateFormater.transform(new Date(),"yyyy-MM-dd"));
+  console.log(this._dateFormater.transform(new Date(),"HH-mm-ss"));
+}
 
 }
 

@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar mode="ios">
+      <ion-title>Inicio</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      &nbsp;
+      <ion-label color="primary" text-center>
+          <h1 >{{clock}}</h1>
+      </ion-label>
+      
+      <div id="startCont-top">
+          <!-- <h3 id="startCont-heading" style="color:#B01A24;text-align:center;">{{estado_F}}</h3> -->
+        </div>
+        <div id="startCont-top">
+       <!--    <h3 id="startCont-heading" style="color:#B01A24;text-align:center;text-decoration:underline">{{myInfo.myGrpName}}</h3> -->
+        </div>
+        
+        <div id="startCont-descanso" >
+            <div class="spacer" style="height: 2em;"></div>
+          <img src="/assets/images/btnDescanso.png" class="line-img-center" style="width:7em; height:7em" alt="" (click)="popDescanso()" >
+          <!-- <h4 id="title-btnDescanso" ng-show="ultimo_F != 'EE'" style="text-align:center">{{boton_descanso}}</h4> -->
+        </div>
+        
+        <div id="startCont-finalizar" >
+            <div class="spacer" style="height: 2em;"></div>
+          <img src="/assets/images/btnFinalizar.png" class="line-img-center"  ng-show="ultimo_F != 'DS'" style="width:7em; height:7em" alt="" >
+          <h4 id="title-btnFinalizar" ng-show="ultimo_F != 'DS'" style="text-align:center">Finalizar Jornada</h4>
+        </div>
+    
+        <div id="startCont-incidencia" >
+          <div class="spacer" style="height: 2em;"></div>
+          <img src="/assets/images/btnIncidencia.png" class="line-img-center" style="width:7em; height:7em" alt="" >
+          <h4 id="title-btnIncidencia" class="" ng-click="showInci()" style="text-align:center">Incidencias</h4>
+        </div>
+  
+  </ion-content>
+  

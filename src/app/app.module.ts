@@ -10,9 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { DateFormatPipe } from './date-format.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DateFormatPipe],
   entryComponents: [],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule],
   schemas: [
@@ -21,7 +23,7 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
   ],
   providers: [
     StatusBar,
-    SplashScreen, NativeStorage, HttpClient,
+    SplashScreen, NativeStorage,Geolocation, HttpClient, DateFormatPipe,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

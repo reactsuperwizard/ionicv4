@@ -71,6 +71,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'start',
+        children: [
+          {
+            path: '',
+            loadChildren: '../start/start.module#StartPageModule'
+          }
+        ]
+      },
+      {
+        path: 'start-cont',
+        children: [
+          {
+            path: '',
+            loadChildren: '../start-cont/start-cont.module#StartContPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

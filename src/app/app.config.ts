@@ -5,5 +5,6 @@ export const appconfig = {
   crud_phone_pref: server_api_url + '16.php',
   group_crud: server_api_url + '13.php',
   get_trace_list: server_api_url + '3.php',
-  get_trace_by_id : server_api_url+"4.php"
+  get_trace_by_id : server_api_url+"4.php",
+   post_my_location : server_api_url+"2.php",
 };

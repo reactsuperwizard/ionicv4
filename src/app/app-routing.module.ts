@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'grp-new', loadChildren: './grp-new/grp-new.module#GrpNewPageModule' },
   { path: 'num-list', loadChildren: './num-list/num-list.module#NumListPageModule' },
   { path: 'registos', loadChildren: './registos/registos.module#RegistosPageModule' },
-  { path: 'start', loadChildren: './start/start.module#StartPageModule' }
+  { path: 'start', loadChildren: './start/start.module#StartPageModule' },
+  { path: 'start-cont', loadChildren: './start-cont/start-cont.module#StartContPageModule' }
 ];
 @NgModule({
   imports: [
