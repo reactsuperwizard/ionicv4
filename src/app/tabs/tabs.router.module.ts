@@ -89,6 +89,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'lista-incidencias',
+        children: [
+          {
+            path: '',
+            loadChildren: '../lista-incidencias/lista-incidencias.module#ListaIncidenciasPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

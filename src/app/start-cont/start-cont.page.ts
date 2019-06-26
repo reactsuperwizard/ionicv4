@@ -47,4 +47,8 @@ export class StartContPage implements OnInit {
     this.clockday=this.currentday+":"+this.currentmonth+":"+this.currentyear;
   }
 
+  popDescanso(){
+    
+  }
+
 }

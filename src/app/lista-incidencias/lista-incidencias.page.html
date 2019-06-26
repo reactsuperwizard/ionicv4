@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar mode="ios">
+    <ion-title>Incidencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <h2 id="incidencias-heading40" style="color:#FFFFFF;text-align:center;">Incidencias</h2>
+
+    <div id="start-grp-list" ng-show="alertas">
+        <ion-list id="start-list">
+        <ion-item *ngFor="let al of alertas"  class="item-text-wrap" >
+            <h2 style="text-align:left">SignClock</h2>
+            <p>{{al.texto}}</p>
+           <h4 ng-style="{'text-align':'left'}">{{al.datetime}}</h4>
+          </ion-item>
+        </ion-list>
+      </div>
+      <hr style=" border: 0; height: 1px; background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));" />
+    <div id="start-grp-list" ng-show="incidencias">
+      <ion-list id="start-list">
+        <ion-item *ngFor="let in of incidencias"   (click)="in.id_numero !== config.loadData.myId && (openModal(in.id_numero))">
+          <h2 style="text-align:left" *ngIf="!(in.id_numero === myInfo.myId)">{{in.nombre}}</h2>
+          <p ng-style="in.id_numero === config.loadData.myId && {'text-align':'right'} || {'text-align':'left'}">{{in.texto}}</p>
+        
+          <h4 ng-style="in.id_numero === config.loadData.myId && {'text-align':'right'} || {'text-align':'left'}">{{in.datetime}}</h4>
+        
+        </ion-item>
+      </ion-list>
+    </div>
+  
+</ion-content>

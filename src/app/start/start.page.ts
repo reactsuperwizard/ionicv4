@@ -18,6 +18,8 @@ export class StartPage implements OnInit {
   startTimmer: boolean = false;
   clock:string;
   clockday:string;
+
+  estado_F:string = "Empezar la jornada";
   constructor(public config:ConfigService,
     private nav:NavController,
     private geo: GeoService,
@@ -28,7 +30,7 @@ export class StartPage implements OnInit {
     this.config.testDate();
     this.startTimmer=true;
     this.timeManager();
-    this.nav.navigateForward('/tabs/start-cont');
+   // this.nav.navigateForward('/tabs/start-cont');
   }
 
   async timeManager() {
@@ -65,6 +67,14 @@ export class StartPage implements OnInit {
     }else{
 
     }
+  }
+
+  goToLists(){
+    this.nav.navigateForward('/tabs/tab2');
+  }
+
+  showInci(){
+    this.nav.navigateForward('/tabs/lista-incidencias');
   }
 
   async checkTipoConf(){

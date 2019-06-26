@@ -67,7 +67,6 @@ export class Tab2Page {
       //goto registos
     }
     this.config.updateLoadData();
-
   }
 
   

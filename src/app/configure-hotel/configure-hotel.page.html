@@ -13,29 +13,36 @@
          <ion-item lines="full">
               <ion-label position="fixed">Empressa: 
                </ion-label>
-               <ion-input></ion-input>
+               <ion-input ([ngModel])="myGrpName"></ion-input>
           </ion-item>
           <ion-item  lines="none">
               <ion-label  text-wrap>
                   <h3>Forma de confirmar fichado:</h3> 
                </ion-label>
           </ion-item>
+          <ion-radio-group>
+            <ion-item lines="full">
+                  <ion-label >Desplazado 
+                   </ion-label>
+                   <ion-radio value="A" ([ngModel])="myGrpCheck" (ionSelect)="setMygrpChek('A')"></ion-radio>
+              </ion-item>
+              <ion-item lines="full">
+                  <ion-label >Compañero
+                   </ion-label>
+                   <ion-radio value="C" ([ngModel])="myGrpCheck" (ionSelect)="setMygrpChek('C')"></ion-radio>
+              </ion-item>
+              <ion-item lines="full">
+                  <ion-label >GeoValla 
+                   </ion-label>
+                   <ion-radio value="G" ([ngModel])="myGrpCheck" (ionSelect)="setMygrpChek('G')"></ion-radio>
+              </ion-item>
+          </ion-radio-group>
+          <div class="row">
+              <div class="center">
+                <ion-button color="dark"  *ngIf="myGrpCheck=='G'" (click)="config.setGeoValla()">Zona para fichar: AQUI</ion-button>
+              </div>
+            </div>
          
-          <ion-item lines="full">
-              <ion-label >Desplazado 
-               </ion-label>
-               <ion-checkbox slot="end"></ion-checkbox>
-          </ion-item>
-          <ion-item lines="full">
-              <ion-label >Compañero
-               </ion-label>
-               <ion-checkbox slot="end"></ion-checkbox>
-          </ion-item>
-          <ion-item lines="full">
-              <ion-label >GeoValla 
-               </ion-label>
-               <ion-checkbox slot="end"></ion-checkbox>
-          </ion-item>
-  <ion-button color="light" expand="block">Guardar</ion-button>
+  <ion-button color="light" expand="block" (click)="config.addGrpInfo(myGrpName,myGrpCheck)">Guardar</ion-button>
 
 </ion-content>

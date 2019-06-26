@@ -25,8 +25,8 @@
         
         <div id="startCont-finalizar" >
             <div class="spacer" style="height: 2em;"></div>
-          <img src="/assets/images/btnFinalizar.png" class="line-img-center"  ng-show="ultimo_F != 'DS'" style="width:7em; height:7em" alt="" >
-          <h4 id="title-btnFinalizar" ng-show="ultimo_F != 'DS'" style="text-align:center">Finalizar Jornada</h4>
+          <img src="/assets/images/btnFinalizar.png" class="line-img-center"  *ngIf="config.loadData.ultimo_F != 'DS'" style="width:7em; height:7em" alt="" >
+          <h4 id="title-btnFinalizar" *ngIf="config.loadData.ultimo_F != 'DS'" style="text-align:center">Finalizar Jornada</h4>
         </div>
     
         <div id="startCont-incidencia" >
