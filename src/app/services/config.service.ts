@@ -172,8 +172,9 @@ export class ConfigService {
     }
 
     this.http.post(appconfig.crud_phone_pref, postData, { headers: headers }).subscribe((data: any) => {
-      console.log(data);
-      if (data.success === '1') {
+      console.log("reloading config=> "+JSON.stringify(data));
+      console.log("ultimo_F "+data.ultimo_F);
+      if (data.success === 1) {
         this.jornada.tipo_jornada = data.tipo_jornada || '';
         this.jornada.forma_jornada = data.forma_jornada || '';
         this.jornada.pactohoras = (data.pactohoras === '1') ? true : false;
@@ -184,19 +185,20 @@ export class ConfigService {
         this.jornada.anuales = data.anuales || '';
         this.jornada.contrasenia = data.contrasenia || '';
 
-        this.loadData.myNum = data.myNum || '';
-        this.loadData.myName = data.myName || '';
-        this.loadData.myTip = data.myTip || '';
-        this.loadData.myGrpLat = data.myGrpLat || '';
-        this.loadData.myGrpLon = data.myGrpLon || '';
-        this.loadData.ultimo_F = data.ultimo_F || '';
+        this.loadData.myNum = data.myNum ;
+        this.loadData.myName = data.myName ;
+        this.loadData.myTip = data.myTip ;
+        this.loadData.myGrpLat = data.myGrpLat ;
+        this.loadData.myGrpLon = data.myGrpLon ;
+        this.loadData.ultimo_F = data.ultimo_F ;
         this.global_datos.Dats = data.horarios;
         this.loadData.acepta = parseInt(data.acepta)||0;
 
         this.jornada.horarios = this.global_datos.Dats;
-
+        console.log(this.loadData);
         this.storage.setItem('myInfo', this.loadData);
         this.storage.setItem('jornada', this.jornada);
+       
       }
     });
 

@@ -4,14 +4,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
     <h2 id="incidencias-heading40" style="color:#FFFFFF;text-align:center;">Incidencias</h2>
-    <ion-label>
-      <ion-textarea ([ngModel])="texto" [autoGrow]=true>
-
-      </ion-textarea>
-    </ion-label>
-<ion-button expand="block" (click)="postIncidencia()">Guardar</ion-button>
+    <ion-item>
+        
+            <ion-textarea ([ngModel])="texto" [autoGrow]=true>
+      
+            </ion-textarea>
+          
+    </ion-item>
+    
+<ion-button expand="block" color="light" (click)="postIncidencia()">Guardar</ion-button>
     
   
 </ion-content>

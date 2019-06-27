@@ -12,24 +12,33 @@
 
 <ion-content padding>
   <ion-label color="primary" text-center>
-    <h2>Ha finalizado tu jornada<ion-icon name="bicycle"></ion-icon></h2>
+    <h2><b>Ha finalizado tu jornada<ion-icon name="bicycle"></ion-icon></b></h2>
   </ion-label>
   &nbsp; &nbsp;
     <div id="start-boton-inci" class="padding">
       <ion-button  color="primary" expand="block"  routerLink="/tabs/incidencias1">
-        <ion-icon slot="left" name="help"></ion-icon>
-        Incidencia</ion-button>
+        <ion-label color="light">
+            Incidencia
+        </ion-label>
+        
+        <ion-icon color="light" slot="end" name="help"></ion-icon>
+        </ion-button>
     </div>
     &nbsp;
     <div id="start-boton-conforme" class="padding">
-      <ion-button expand="block"  routerLink="/tabs/registros">
-          <ion-icon slot="left" name="log-out"></ion-icon>
-        Conforme</button>
+      <ion-button expand="block"  routerLink="/tabs/registos">
+        <ion-label color="light">
+            Conforme
+          </ion-label>
+        <ion-icon color="light" slot="end" name="log-out"></ion-icon>
+        </ion-button>
     </div>
     &nbsp;
     <div id="start-boton-volver" class="padding">
- <ion-button expand="block"  routerLink="/tabs/start">
-  <ion-icon slot="left" name="clock"></ion-icon>
-  Iniciar jornada</ion-button>
+ <ion-button expand="block"  routerLink="/tabs/start"> <ion-label  color="light">
+    Iniciar jornada
+  </ion-label>
+  <ion-icon color="light" slot="end" name="clock"></ion-icon>
+  </ion-button>
     </div>
 </ion-content>

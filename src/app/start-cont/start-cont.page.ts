@@ -14,7 +14,7 @@ export class StartContPage implements OnInit {
   clockday:string;
 
   boton_descanso:string="Realizar un descanso";
-  estado_F:string;
+  estado_F:string="Estas en tu tiempo de descanso";
 
   constructor(public config:ConfigService,
     private dateFormater:DateFormatPipe,
@@ -30,6 +30,7 @@ export class StartContPage implements OnInit {
   }
 
   init(){
+    console.log(this.config.loadData);
     if(this.config.loadData.ultimo_F==='E'){
       this.estado_F = "Estas en tu jornada laboral";
       this.boton_descanso = "Realizar un descanso";
