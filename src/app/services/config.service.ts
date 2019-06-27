@@ -31,7 +31,9 @@ export class ConfigService {
     'ultimo_F': '',
     'geo_phone': '',
     'latF': '',
-    'lonF': ''
+    'lonF': '',
+    'acepta':0,
+    'estado_F':''
   };
 
   jornada = {
@@ -189,6 +191,7 @@ export class ConfigService {
         this.loadData.myGrpLon = data.myGrpLon || '';
         this.loadData.ultimo_F = data.ultimo_F || '';
         this.global_datos.Dats = data.horarios;
+        this.loadData.acepta = parseInt(data.acepta)||0;
 
         this.jornada.horarios = this.global_datos.Dats;
 
@@ -446,5 +449,25 @@ export class ConfigService {
     });
     await alert.present();
   }
+
+  updategrpInfo(){
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    let postData = {
+      id_phone: this.loadData.myId,
+      id_grupo: this.loadData.myGrpId,
+      acepta: 1
+    }
+    this.http.post(appconfig.upd_grp_info, postData, { headers: headers }).subscribe((data: any) => {
+      if (data[0].success === '1'){
+      this.presentAlert('Grupo','','Acabas de entrar en el grupo');
+      }else{
+        
+      }
+    }); 
+   this.loadData.estado_F = "Administrador";
+
+}
+  
 
 }

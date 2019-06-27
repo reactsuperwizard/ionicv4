@@ -8,6 +8,6 @@ export const appconfig = {
   get_trace_by_id : server_api_url+'4.php',
    post_my_location : server_api_url+'2.php',
    crud_inci : server_api_url+'15.php',
-   set_geo_valla : server_api_url+'11.php'
-
+   set_geo_valla : server_api_url+'11.php',
+   upd_grp_info:server_api_url+'10.php'
 };

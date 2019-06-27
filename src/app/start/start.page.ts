@@ -31,7 +31,36 @@ export class StartPage implements OnInit {
     
     this.startTimmer=true;
     this.timeManager();
+    this.init();
    // this.nav.navigateForward('/tabs/start-cont');
+  }
+
+  async init(){
+    if (this.config.loadData.ultimo_F != 'S' && this.config.loadData.ultimo_F != null) {
+      this.nav.navigateForward('/tabs/start-cont');
+  }else if(this.config.loadData.acepta===0){
+    const alert = await this.alertController.create({
+      header: 'Has sido añadido al grupo '+this.config.loadData.myGrpName,
+      message: ' ',
+      buttons: [
+        {
+          text: 'No acepto',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Conforme',
+          handler: () => {
+            console.log('Confirm Okay');
+           this.config.updategrpInfo();
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
   }
 
   async timeManager() {
@@ -112,7 +141,7 @@ export class StartPage implements OnInit {
             console.log('Confirm Cancel: blah');
           }
         }, {
-          text: '<b>Si</b>',
+          text: 'Si',
           handler: () => {
             console.log('Confirm Okay');
             this.config.doPostGeo();
