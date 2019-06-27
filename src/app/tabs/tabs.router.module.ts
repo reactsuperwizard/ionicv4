@@ -98,6 +98,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'end-jornada',
+        children: [
+          {
+            path: '',
+            loadChildren: '../end-jornada/end-jornada.module#EndJornadaPageModule'
+          }
+        ]
+      },
+      {
+        path: 'incidencias1',
+        children: [
+          {
+            path: '',
+            loadChildren: '../incidencias1/incidencias1.module#Incidencias1PageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

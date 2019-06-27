@@ -241,7 +241,6 @@ export class ConfigService {
             this.postGeo('E');
             this.storage.setItem("datetimeF", new Date());
             this.nav.navigateForward('/tabs/start-cont');
-
           }
         }
       ]
@@ -335,7 +334,7 @@ export class ConfigService {
 
           }
         }, {
-          text: '<b>Establecer</b>',
+          text: 'Establecer',
           handler: () => {
             console.log('Confirm Okay');
             this.geo.getCuurentLocation().then((data) => {
@@ -406,6 +405,46 @@ export class ConfigService {
     }
   }
 
+  async postIncidencia(textco) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    let postData = {
+      crud: "A",
+      id_numero: this.loadData.myId,
+      id_grupo: this.loadData.myGrpId,
+      para: this.loadData.myGrpAdminId,
+      texto: textco
+    }
+    this.http.post(appconfig.group_crud, postData, { headers: headers }).subscribe((data: any) => {
+      try {
+        if (data[0].success === '1') {
+        this.presentIncendetia1();
+        } else {//puede que ya esté guardado
+          //no aceptado por error en la bd
+        }
+      } catch (err) {
+        //error en la comunicacion
+      }
+    });
+
+
+  }
+
+  async presentIncendetia1(){
+    const alert = await this.alertController.create({
+      header: 'Incidencia',
+      message: 'Está; la incidencia le llegará al responsable',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.postGeo('E');
+            this.nav.navigateForward('/tabs/start');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
 }
-
-

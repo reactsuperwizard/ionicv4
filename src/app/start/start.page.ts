@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../services/config.service';
 import { NavController, AlertController } from '@ionic/angular';
 import { GeoService } from '../services/geo.service';
+import { DateFormatPipe } from '../date-format.pipe';
 
 @Component({
   selector: 'app-start',
@@ -23,11 +24,11 @@ export class StartPage implements OnInit {
   constructor(public config:ConfigService,
     private nav:NavController,
     private geo: GeoService,
-    private alertController:AlertController,
+    private alertController:AlertController,private dateFormater:DateFormatPipe
     ) { }
 
   ngOnInit() {
-    this.config.testDate();
+    
     this.startTimmer=true;
     this.timeManager();
    // this.nav.navigateForward('/tabs/start-cont');
@@ -35,14 +36,6 @@ export class StartPage implements OnInit {
 
   async timeManager() {
     while (this.startTimmer) {
-      let time = new Date();
-      this.currentday = time.getDate().toString();
-      this.currentmonth = (time.getMonth()+1).toString();
-      this.currentyear = time.getFullYear().toString();
-      this.currentHrs = time.getHours().toString();
-      this.currentMins = time.getMinutes().toString();
-      this.currentseconds = time.getSeconds().toString();
-      //console.log(time.get().toString());
       this.updateClock();
       await this.delay(1000);
     }
@@ -53,14 +46,15 @@ export class StartPage implements OnInit {
   }
 
   updateClock(){
-    this.clock=this.currentHrs+":"+this.currentMins+":"+this.currentseconds;
-    this.clockday=this.currentday+":"+this.currentmonth+":"+this.currentyear;
+  
+    this.clock=this.dateFormater.transform(new Date(),"HH:mm:ss");
+    this.clockday=this.dateFormater.transform(new Date(),"dd:MM:yyyy");
   }
 
   lanzarF(){
     if(this.config.loadData.myGrpId){
-      this.checkTipoConf();
-    
+      console.log("calling checkTipoConf");
+      this.checkTipoConf();  
     }else if(!this.config.loadData.myGrpId){
       this.config.presentAlert('No puede fichar!','','No pertenece a ninguna empresa');
       console.log('No tiene empresa');
@@ -80,27 +74,20 @@ export class StartPage implements OnInit {
   async checkTipoConf(){
     let dist = 0;
     if(this.config.loadData.myGrpCheck==='A'||this.config.loadData.myGrpCheck==='C'){
-//call doPostGeo()
-this.config.doPostGeo();
+        //call doPostGeo()
+        this.config.doPostGeo();
     }else if(this.config.loadData.myGrpCheck==='G'){
-
       this.geo.getCuurentLocation().then((result:any)=>{
       this.config.loadData.latF=result.coords.latitude;
       this.config.loadData.lonF=result.coords.longitude;
       dist = this.geo.getDistanceFromLatLonInKm(this.config.loadData.myGrpLat, this.config.loadData.myGrpLon
       , result.coords.latitude, result.coords.longitude);
-
       if (dist < 25) {
-        //return true;
-        //$scope.doPostGeo();
         this.config.doPostGeo();
     } else {
         var txt_dist = dist + " metros";
-        
         if (dist > 1000) { txt_dist = Math.round(dist / 1000) + " kilometros"; }
-      
         this.presenstConfirmation(txt_dist);
-       
     }
 
       }).catch((error)=>{

@@ -9,7 +9,9 @@ const routes: Routes = [
   { path: 'registos', loadChildren: './registos/registos.module#RegistosPageModule' },
   { path: 'start', loadChildren: './start/start.module#StartPageModule' },
   { path: 'start-cont', loadChildren: './start-cont/start-cont.module#StartContPageModule' },
-  { path: 'lista-incidencias', loadChildren: './lista-incidencias/lista-incidencias.module#ListaIncidenciasPageModule' }
+  { path: 'lista-incidencias', loadChildren: './lista-incidencias/lista-incidencias.module#ListaIncidenciasPageModule' },
+  { path: 'end-jornada', loadChildren: './end-jornada/end-jornada.module#EndJornadaPageModule' },
+  { path: 'incidencias1', loadChildren: './incidencias1/incidencias1.module#Incidencias1PageModule' }
 ];
 @NgModule({
   imports: [
